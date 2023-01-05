@@ -1,3 +1,5 @@
+package l1;
+
 public class TestBean {
     private String name;
 
