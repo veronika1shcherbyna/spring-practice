@@ -11,14 +11,26 @@
 
     <bean id="testBean" class="l1.TestBean"> <constructor-arg value="Veronika"/> </bean>
 
-    <bean id="musicBean" class="l2.RockMusic"> </bean>
-    <bean id="musicPlayerBean" class="l2.MusicPlayer">
-<!--        <constructor-arg ref="musicBean" />-->
-        <property name="music" ref="musicBean" />
-<!--        <property name="name" value="Pup" />-->
-<!--        <property name="volume" value="123" />-->
-        <property name="name" value="${musicPlayer.name}" />
-        <property name="volume" value="${musicPlayer.volume}" />
+    <bean id="rockMusicBean" class="l2.RockMusic"> </bean>
+    <bean id="classicalMusicBean" class="l2.ClassicalMusic"> </bean>
+    <bean id="popMusicBean" class="l2.PopMusic"> </bean>
+<!--    <bean id="musicPlayerBean" class="l2.MusicPlayer">-->
+<!--&lt;!&ndash;        <constructor-arg ref="musicBean" />&ndash;&gt;-->
+<!--        <property name="music" ref="musicBean" />-->
+<!--&lt;!&ndash;        <property name="name" value="Pup" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="volume" value="123" />&ndash;&gt;-->
+<!--        <property name="name" value="${musicPlayer.name}" />-->
+<!--        <property name="volume" value="${musicPlayer.volume}" />-->
+<!--    </bean>-->
+
+    <bean id="musicPlayerBean" class="l2.MusicPlayer"> 
+        <property name="musicList">
+            <list value-type="l2.Music">
+                <ref bean="rockMusicBean"/>
+                <ref bean="classicalMusicBean"/>
+                <ref bean="popMusicBean"/>
+            </list>
+        </property>
     </bean>
 
 </beans>
