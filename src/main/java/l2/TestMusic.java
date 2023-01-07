@@ -8,13 +8,8 @@ public class TestMusic {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-//        Music musicBean = context.getBean("musicBean", ClassicalMusic.class);
-//        MusicPlayer musicPlayer = new MusicPlayer(musicBean);
-        MusicPlayer musicPlayer = context.getBean("musicPlayerBean", MusicPlayer.class);
-        musicPlayer.playMusic();
-
-//        System.out.println(musicPlayer.getName());
-//        System.out.println(musicPlayer.getVolume());
+        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+        System.out.println(classicalMusic.getSong());
 
         context.close();
     }
