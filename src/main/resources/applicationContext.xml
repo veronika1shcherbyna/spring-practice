@@ -7,19 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties" />
-
-    <bean id="musicBean" class="l2.ClassicalMusic"
-        init-method="doMyInit"
-        destroy-method="doMyDestroy"
-        factory-method="getClassicalMusic">
-    </bean>
-
-<!--    <bean id="musicPlayerBean" class="l2.MusicPlayer" scope="prototype">-->
-<!--        <property name="music" ref="musicBean" />-->
-<!--        <property name="name" value="Pup" />-->
-<!--        <property name="volume" value="123" />-->
-<!--    </bean>-->
-
+    <context:component-scan base-package="l2" />
 
 </beans>
